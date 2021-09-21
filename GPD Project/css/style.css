@@ -257,6 +257,9 @@ img{
    #contact h2{
       display: inline;
    }
+   #contact address{
+      font-size: 1.5rem;
+   }
    /****************************Revert Mobile NavBar NEW HEADER*****************************************/
    h1{
       font-size: 2.5rem;
