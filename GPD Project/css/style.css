@@ -1,10 +1,12 @@
-/* BASE TAGS & ELEMENTS ***************************************/
+/********************************** BASE TAGS & ELEMENTS ***************************************/
 *{
    box-sizing: border-box;
    font-family: Arial, Helvetica, sans-serif;
    hyphens: auto;
 }
-
+body{
+   font-size: 1.25rem;
+}
 
 header{
    background: rgba(0, 0, 0, .1);
@@ -68,12 +70,12 @@ img{
    width: 100%;
    height: auto;
 }
-/* Mobile NavBar ***************************************/
+/********************************** Mobile NavBar ***************************************/
 .overlay{
    height: 100%;
    width: 0;
    position: fixed;
-   z-index: 1;
+   z-index: 210;
    left: 0;
    top: 80px;
    background:rgb(0,0,0) rgba(0,0,0,.9);
@@ -98,13 +100,13 @@ img{
    color: orange;
 }
 .overlay-content input{
-   font-size: 2rem;
+   font-size: 2.5rem;
    background: rgb(0,0,0,.5);
    color: white;
    outline: none;
    border: none;
    border-radius: 10px/20px;
-   width: calc(90% - 33px);
+   width: 50%;
 }
 .overlay-content input::placeholder{
    color: white;
@@ -112,7 +114,7 @@ img{
 
 .overlay a{
    padding: .5rem;
-   font-size: 2.2rem;
+   font-size: 2.5rem;
    display: block;
    transition: 0.3s;
 }
@@ -144,8 +146,63 @@ img{
    font-size: 2.5rem;
 }
 
+/********************************* FORM*************************************************/
+.popup-form{
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100vh;
+   overflow: auto;
+   background:linear-gradient(45deg,rgba(53,56,57,.7),rgba(36,33,36,.6),rgba(0, 0, 0, .4) ) ;
+   z-index: 1; 
+}
 
-/* LAYOUT ***************************************/
+.form-wrap{
+   width:80%;
+   display: flex;
+   flex-direction: column;
+   background-color: rgba(53,56,57,.1);
+   border-radius: 20px;
+   margin:10% 10%;
+}
+
+.form-wrap label{
+   font-weight: 700;
+   padding:  0;
+}
+.form-wrap input,
+.form-wrap textarea{
+   margin: 0 0 .5rem;
+   border-radius: 20px;
+   background: transparent;
+   color: #fff;
+   box-shadow: inset 1px 1px 10px rgba(0, 0, 0, .5);
+   border: 1px #525252 solid;
+   padding:.5rem;
+}
+input::placeholder,
+textarea::placeholder{
+   color:#bfc1c2;
+}
+
+.form-wrap button{
+   margin: auto 10%;
+   margin-bottom:1.5rem;
+}
+
+.form-wrap .close{
+   background: linear-gradient(-45deg, #f50000 , #cc0000, #a30000);
+}
+.cancel{
+   color:red ;
+   font-size: 3rem;
+   position: absolute;
+   right: 20px;
+   top: 10px;
+   z-index: 3;
+}
+/********************************** LAYOUT ***************************************/
 .fill-top{
    width: 100%;
    height: 65px;
@@ -160,7 +217,7 @@ img{
    clear: both;
 }
 
-/* CLASSES***************************************/
+/********************************** CLASSES***************************************/
 .header-wrap{
    background: url(images/intro.jpg)  center/cover  no-repeat, #bfc1c2; 
    background-blend-mode:multiply ;
@@ -168,18 +225,22 @@ img{
    height: 100vh;
 }
 
-
+.close,
 .btn{
    border: none;
    background: linear-gradient(-45deg,#ffb347, #ffa500, #ff8c00);
    box-shadow:0 0 20px 3px rgba(0, 0, 0, .5);
-   width: fit-content;
+   width: 10em;
    display: block;
    color: #000;
    font-weight: 900;
    padding: 1rem;
    border-radius: 10px;
-   
+   text-align: center;
+}
+.btn:hover,
+.close:hover{
+   color: #fff;
 }
 .intro{
    border: none;
@@ -205,7 +266,7 @@ img{
    background:linear-gradient(to bottom,#ffa805,#ffad14,#ffb938) ;
    color: black;
 }
-/* ID'S */
+/********************************** ID'S **********************************/
 #about h2{
    border-bottom: 1px solid black ;
    margin-bottom: 1rem;
@@ -221,16 +282,48 @@ img{
 #contact{
    padding-bottom: 2rem;
 }
+#contact ul{
+   padding:0;
+}
+/********************************** MEDIA QUERIES***************************************/
+@media (min-width: 720px) and (max-width:999px) {
+   h1{
+      font-size: 3rem;
+   }
+   .intro h2{
+      font-size: 4rem;
+   }
+   .intro p ,.intro a{
+      font-size: 1.5rem;
+   }
+   .content p,
+   address{
+      font-size: 1.2rem;
+   }
+   .content h2{
+      font-size: 2.1rem;
+   }
+   .content h3{
+      font-size: 1.75rem;
+   }
 
-/* MEDIA QUERIES***************************************/
+   .flex-row{
+      display: flex;
+      flex-direction: row;
+      margin-top: 1rem;
+   }
+}
+
 @media (min-width:1000px) {
    h2{
       font-size: 3rem;
    }
-   h3{
+   h3,
+   .intro p{
       font-size: 2rem;
    }
-   p{
+   p,
+   address{
       font-size: 1.5rem;
    }
    .content{
@@ -243,9 +336,6 @@ img{
    .intro a{
       font-size: larger;
    }
-   .intro p{
-      font-size: 2rem;
-   }
    .intro h2{
       font-size: 4rem;
    }
@@ -257,9 +347,28 @@ img{
    #contact h2{
       display: inline;
    }
-   #contact address{
-      font-size: 1.5rem;
+   .popup-form{
+      position: revert;
+      left: revert;
+      top:revert;
+      width: revert;
+      height: revert;
+      overflow: revert;
+      background:revert ;
+      z-index: revert; 
    }
+   .form-wrap{
+      background-color: revert;
+   }
+   .flex-row{
+      display: flex;
+      flex-direction: row;
+      margin-top: 1rem;
+   }
+   .cancel{
+      display: none;
+   }
+
    /****************************Revert Mobile NavBar NEW HEADER*****************************************/
    h1{
       font-size: 2.5rem;
@@ -291,12 +400,12 @@ img{
    float: right;
    
 }
-
+   .overlay-content input,
+   .overlay a,
    .material-icons{
    font-size: 1.5rem;
 }
    .overlay-content input{ 
-      font-size: 1.5rem;
       width: 20rem;
    }
    .overlay-content input::placeholder{
@@ -312,8 +421,6 @@ img{
    }
    .overlay a{
       padding: revert;
-      font-size: 1.5rem;
-      
       display: revert;
       transition: revert;
    }
@@ -332,3 +439,4 @@ img{
       display: inline;
    }
 }
+
