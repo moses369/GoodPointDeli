@@ -20,15 +20,69 @@
                   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                   <div id="main-navContent" class="overlay-content">
                      <ul onclick="closeNav()" >
-                        <li><a href="#contact" >Contact</a></li>
-                        <li><a href="#">Shop</a></li>
+                        <li><a href="#contact"><i class="material-icons">phone</i></a></li>
+                        <li><a href="#"><i class="material-icons">shopping_cart</i></a></li>
+                        <div class="dropdown">
+                           <button><i class="material-icons" onclick="closeLiForm(), closeSuForm()">account_circle</i></button>
+                           <div class="dropdown-content">
+                              <div class="flex-column">
+                                 <a href="javascript:void(0)" onclick="openLiForm() , closeSuForm()" >Sign In</a>
+                                 <a href="javascript:void(0)" onclick="closeLiForm(), openSuForm()" >Sign Up</a>
+                              </div>
+                           </div>
+                        </div>
                      </ul>
                      <form class="searchBar" action="#">
                         <input id="s-input" type="text" placeholder="Search Products" name="search">
                         <button id="s-icon"type="submit"><i class="material-icons" >search</i></button>
                      </form>
+                     
+
                      <div class="clear"></div>
                   </div>
+                  <form class="popup-LiForm">  
+                     <div class="form-wrap">                               
+                        <label for="email">Email</label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
+
+                        <label for="psw">Password</label>
+                        <input type="password" name="psw" id="phone" placeholder="Enter Password" required>
+
+                        <label>
+                           <input type="checkbox" id="rem" name="remember"> 
+                           Remember Me
+                        </label>
+
+                        <span class="psw"> <a href="#">Forgot password?</a></span>
+                        <div class="flex-row">
+                           <button type="submit"  class="btn" >Login</button>
+                           <button type="button" class='close' class="cancel" onclick="closeLiForm()">Cancel</button>
+                        </div>
+                     </div>  
+                  </form>
+                  <form class="popup-SuForm">  
+                     <div class="form-wrap">                               
+                        <label for="email">Email</label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
+
+                        <label for="psw">Password</label>
+                        <input type="password" name="psw" id="phone" placeholder="Enter Password" required>
+
+                        <label for="psw-repeat">Repeat Password</label>
+                        <input type="password" placeholder="Repeat Password" name="psw-repeat"></input>
+
+                        <label>
+                           <input type="checkbox" id="rem" name="remember"> 
+                           Remember Me
+                        </label>
+
+                        <p>By creating an account you have agreed to our <a href="#">Terms &amp; Privacy</a></p>
+                        <div class="flex-row">
+                           <button type="submit" value="Submit" class="btn" >Submit</button>
+                           <button type="button" class='close' class="cancel" onclick="closeSuForm()">Cancel</button>
+                        </div>
+                     </div>  
+                  </form>
                </nav>
             </div>
             <div id="nav-btn" onclick="openNav()">
@@ -77,11 +131,11 @@
                            <p><strong>Monday- Saturday: </strong> 8am - 9pm</p>
                            <p><strong>Sunday:</strong> 8am - 5pm</p>
                         </li>
-                        <button href= "javascript:void(0)" id="vf-btn"onclick="openForm()" class="btn">Send Message</button>
+                        <button href= "javascript:void(0)" id="vmsg-btn"onclick="openMesg()" class="btn">Send Message</button>
                      </ul>
                      
-                     <form class="popup-form">  
-                        <span  onclick="closeForm()" class="cancel">&times;</span>
+                     <form class="popup-Mesg">  
+                        <span  onclick="closeMesg()" class="cancel" id="close_formX">&times;</span>
                         <div class="form-wrap">     
                            <label for="name">Name*</label>
                            <input type="text" name="name" id="name" placeholder="Enter Name" required>
@@ -96,7 +150,7 @@
                            <textarea name="message" id="message" cols="25" rows="4" placeholder="What can we help you with?"></textarea>
                            <div class="flex-row">
                               <button type="submit" value="Send Message" class="btn" class="submit-f">Send Message</button>
-                              <button type="button" class='close' onclick="closeForm()">Close</button>
+                              <button type="button" class='close' class="cancel"  onclick="closeMesg()">Close</button>
                            </div>
                         </div>  
                      </form>

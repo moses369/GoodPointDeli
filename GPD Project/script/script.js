@@ -21,18 +21,53 @@ mQuery.addEventListener(closeNav);
 
 // Opens form when pressing the send message button
 
-function openForm(){
-   document.querySelector('.popup-form').style.display="block";
-   if(document.querySelector('.popup-form').style.display="block"){
-      document.querySelector('#vf-btn').style.display = "none";
+   function openMesg(){
+      document.querySelector('.popup-Mesg').style.display="block";
+      if(document.querySelector('.popup-Mesg').style.display="block"){
+         document.querySelector('#vmsg-btn').style.display = "none";
+         if(mQuery.matches){
+            document.querySelector('.cancel').style.display = "block";
+         }
+      }
+}
+
+// closes for when pressed
+function closeMesg(){
+   document.querySelector('.popup-Mesg').style.display="none";
+   if(document.querySelector('.popup-Mesg').style.display="none"){
+      document.querySelector('#vmsg-btn').style.display = "block";
+      document.querySelector('.cancel').style.display = "none";
+   }
+}
+
+// Opens sign up   form when pressing the send message button
+
+function openSuForm(){
+   document.querySelector('.popup-SuForm').style.display="block";
+   if(document.querySelector('.popup-SuForm').style.display="block"){
       document.querySelector('.cancel').style.display = "block";
    }
 }
 // closes for when pressed
-function closeForm(){
-   document.querySelector('.popup-form').style.display="none";
-   if(document.querySelector('.popup-form').style.display="none"){
-      document.querySelector('#vf-btn').style.display = "block";
+function closeSuForm(){
+   document.querySelector('.popup-SuForm').style.display="none";
+   if(document.querySelector('.popup-SuForm').style.display="none"){
+      document.querySelector('.cancel').style.display = "none";
+   }
+}
+
+// Opens sign in   form when pressing the send message button
+
+function openLiForm(){
+   document.querySelector('.popup-LiForm').style.display="block";
+   if(document.querySelector('.popup-LiForm').style.display="block"){
+      document.querySelector('.cancel').style.display = "block";
+   }
+}
+// closes for when pressed
+function closeLiForm(){
+   document.querySelector('.popup-LiForm').style.display="none";
+   if(document.querySelector('.popup-LiForm').style.display="none"){
       document.querySelector('.cancel').style.display = "none";
    }
 }

@@ -77,14 +77,15 @@ img{
    position: fixed;
    z-index: 210;
    left: 0;
-   top: 80px;
-   background:rgb(0,0,0) rgba(0,0,0,.9);
+   top: 15px;
+   background: rgba(0,0,0,.9);
    overflow-x: hidden;
    transition: 0.5s;
 }
+
 .overlay-content{
    position: relative;
-   top: 25%;
+   top: 10%;
    width: 100%;
    text-align: center;
    margin-top: 1.75rem;
@@ -109,7 +110,8 @@ img{
    width: 50%;
 }
 .overlay-content input::placeholder{
-   color: white;
+   color: #bfc1c2;
+   font-size: 1.3rem;
 }
 
 .overlay a{
@@ -147,7 +149,10 @@ img{
 }
 
 /********************************* FORM*************************************************/
-.popup-form{
+.popup-Mesg,
+.popup-SuForm,
+.popup-LiForm{
+   display: none;
    position: fixed;
    left: 0;
    top: 0;
@@ -162,11 +167,14 @@ img{
    width:80%;
    display: flex;
    flex-direction: column;
-   background-color: rgba(53,56,57,.1);
    border-radius: 20px;
    margin:10% 10%;
+   background: rgba(0, 0, 0, .7);
+   padding: 1rem;
 }
-
+.form-wrap a{
+   font-size: 1.2rem;
+}
 .form-wrap label{
    font-weight: 700;
    padding:  0;
@@ -201,6 +209,22 @@ textarea::placeholder{
    right: 20px;
    top: 10px;
    z-index: 3;
+}
+#rem{
+   width: fit-content;
+   margin-bottom: 1rem;
+}
+
+
+.form-wrap p{
+   text-align: center;
+}
+.form-wrap a{
+   color: #ff8c00;
+}
+
+.form-wrap a:hover{
+   color: #fff;
 }
 /********************************** LAYOUT ***************************************/
 .fill-top{
@@ -347,19 +371,8 @@ textarea::placeholder{
    #contact h2{
       display: inline;
    }
-   .popup-form{
-      position: revert;
-      left: revert;
-      top:revert;
-      width: revert;
-      height: revert;
-      overflow: revert;
-      background:revert ;
-      z-index: revert; 
-   }
-   .form-wrap{
-      background-color: revert;
-   }
+
+
    .flex-row{
       display: flex;
       flex-direction: row;
@@ -368,6 +381,20 @@ textarea::placeholder{
    .cancel{
       display: none;
    }
+.popup-Mesg,
+.popup-SuForm,
+.popup-LiForm{
+   display: none;
+   position: relative;
+   right: 0;
+   top: 80px;
+   width: revert;
+   height: revert;
+   overflow: auto;
+   background:transparent ;
+   z-index: revert; 
+}
+
 
    /****************************Revert Mobile NavBar NEW HEADER*****************************************/
    h1{
@@ -390,15 +417,15 @@ textarea::placeholder{
    overflow-x: revert;
    transition: revert;
 }
+
    .overlay-content{
-   position: relative;
+   position: revert;
    top: revert;
    width: revert;
    text-align:revert;
    margin-top:revert;
    padding:3rem .5rem 0;
-   float: right;
-   
+   float: right;   
 }
    .overlay-content input,
    .overlay a,
@@ -414,6 +441,7 @@ textarea::placeholder{
    .overlay ul{
       float: left;
       padding: 0;
+      display: flex;
    }
    .overlay li{
       display: inline;
@@ -437,6 +465,22 @@ textarea::placeholder{
    }
    .searchBar {
       display: inline;
+   }
+   .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      z-index: 1;
+   }
+   .flex-column{
+      display: flex;
+      flex-direction: column;
+   }
+   .dropdown:hover .dropdown-content{
+      display: block;
+   }
+   #close_formX{
+      display: none;
    }
 }
 
